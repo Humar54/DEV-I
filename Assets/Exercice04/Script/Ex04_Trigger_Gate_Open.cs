@@ -10,5 +10,6 @@ public class Ex04_Trigger_Gate_Open : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _gate.SetActive(false);
+
     }
 }
