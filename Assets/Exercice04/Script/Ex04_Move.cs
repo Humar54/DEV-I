@@ -40,7 +40,7 @@ public class Ex04_Move : MonoBehaviour
             x_direction = 0;
         }
 
-        _direction =new Vector3(x_direction,0,z_direction).normalized;
+        _direction =new Vector3(x_direction ,0, z_direction).normalized;
         transform.position += _direction * _speed * Time.deltaTime;
     }
 }

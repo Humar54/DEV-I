@@ -9,6 +9,6 @@ public class Ex04_Trigger_Gate_Open : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _gate.transform.localScale = Vector3.zero;
+        _gate.SetActive(false);
     }
 }

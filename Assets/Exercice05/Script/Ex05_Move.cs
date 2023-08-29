@@ -4,36 +4,25 @@ using UnityEngine;
 
 public class Ex05_Move : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private Vector3 _direction = new Vector3(0, 0, 0);
     [SerializeField] private float _speed = 4f;
-    [SerializeField] private KeyCode _up;
-    [SerializeField] private KeyCode _down;
-    [SerializeField] private KeyCode _left;
-    [SerializeField] private KeyCode _right;
 
-    // Update is called once per frame
+    private Vector3 _direction = new Vector3(0, 0, 0);
+
+
     void Update()
     {
-        if (Input.GetKey(_up))
-        {
-            _direction.z = 1;
-        }
-        else if (Input.GetKey(_down))
-        {
-            _direction.z = -1;
-        }
-        else if (Input.GetKey(_right))
+
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             _direction.x = 1;
         }
-        else if (Input.GetKey(_left))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             _direction.x = -1;
         }
         else
         {
-            _direction=Vector3.zero;
+            _direction = Vector3.zero;
         }
 
         transform.position += _direction * _speed * Time.deltaTime;
