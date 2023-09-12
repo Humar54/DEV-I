@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Ex9_Spawner : MonoBehaviour
 {
     [SerializeField] private float _ySpawnRange = 3f;
     [SerializeField] private float _randomSpawnMaxDelay = 5f;
