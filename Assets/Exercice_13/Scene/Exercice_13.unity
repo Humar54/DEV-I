@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _reference: {fileID: 1022785289}
-  _nbToInstantiate: 6
   _prefab: {fileID: 1166322921584034875, guid: 1c6a5804c4d77a742afecc4bbf4e5523, type: 3}
+  _nbToInstantiate: 6
   _range: 5
 --- !u!4 &258504328
 Transform:
