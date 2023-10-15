@@ -18,5 +18,6 @@ public class Exercice_19 : MonoBehaviour
     private void LoadScene()
     {
         SceneManager.LoadScene(_sceneName);
+        DontDestroyOnLoad(gameObject);
     }
 }
