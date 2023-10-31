@@ -80,6 +80,7 @@ public class SonicWithRaycast : MonoBehaviour
         Vector2 direction = -transform.up;
         RaycastHit2D hit = Physics2D.Raycast(origine, direction, _rayCastLength, _layerMask);
         Debug.DrawRay(origine, direction * _rayCastLength, Color.red);
+
         if (hit.collider!=null)
         {
             return true;
