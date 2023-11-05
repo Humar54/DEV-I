@@ -10,6 +10,7 @@ public class Cours18_Fireball : MonoBehaviour
     [SerializeField] private Material _explosionMaterial;
     [SerializeField] private float _explosionDelay = 1.5f;
     [SerializeField] private float _fireballSpeed = 4f;
+    [SerializeField] private GameObject _explosion;
 
 
     private Transform _target;
@@ -40,13 +41,13 @@ public class Cours18_Fireball : MonoBehaviour
         if (other.GetComponent<Cours18_Enemy>()!=null && !_hasExploded)
         {
             Explosion();
+            _explosion.SetActive(true);
             Debug.Log("Explosion");
         }
     }
 
     private void Explosion()
     {
-        GetComponent<MeshRenderer>().material = _explosionMaterial;
         transform.localScale = Vector3.one*_radius;
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius/2f);
         foreach (Collider collider in hitColliders)

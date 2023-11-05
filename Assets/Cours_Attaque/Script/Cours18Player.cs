@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cours18Player : MonoBehaviour
 {
-    [SerializeField] private Cours18_Fireball _fireballPrefab;
+
     [SerializeField] private float _movementSpeed = 5f;
     [SerializeField] private float _stopingDistance = 0.1f;
     [SerializeField] private float _attackCoolDown = 1.5f;
@@ -48,9 +46,6 @@ public class Cours18Player : MonoBehaviour
             }
         }
 
-        CheckToSendFireball();
-
-
         if (_enemyTarget != null)
         {
             _targetPosition = _enemyTarget.transform.position;
@@ -68,31 +63,6 @@ public class Cours18Player : MonoBehaviour
         _attackTimer += Time.deltaTime;
     }
 
-    private void CheckToSendFireball()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            Ray ray;
-            RaycastHit hit;
-            ray = _camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                Cours18_Enemy enemy = hit.collider.GetComponent<Cours18_Enemy>();
-
-                if (enemy != null)
-                {
-                    transform.LookAt(enemy.transform.position);
-                    SendFireball(enemy.transform);
-                }
-            }
-        }
-    }
-
-    private void SendFireball(Transform target)
-    {
-        Cours18_Fireball newFireball = Instantiate(_fireballPrefab,transform.position+new Vector3(0,1,0),Quaternion.identity);
-        newFireball.SetTarget(target);
-    }
 
     private void Attack()
     {
