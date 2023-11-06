@@ -5,6 +5,8 @@ using UnityEngine;
 public class Cours_18_Fireball_skill : MonoBehaviour
 {
     [SerializeField] private Cours18_Fireball _fireballPrefab;
+    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private Animator _animator;
     [SerializeField] private float _coolDown = 5f;
 
     private float _timer;
@@ -46,7 +48,8 @@ public class Cours_18_Fireball_skill : MonoBehaviour
 
     private void SendFireball(Transform target)
     {
-        Cours18_Fireball newFireball = Instantiate(_fireballPrefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        _animator.SetTrigger("_cast");
+        Cours18_Fireball newFireball = Instantiate(_fireballPrefab, _spawnPoint.position, Quaternion.identity);
         newFireball.SetTarget(target);
         _timer = 0;
     }
