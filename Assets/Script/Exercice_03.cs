@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class Exercice01 : MonoBehaviour
+public class Exercice_03 : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _yRange = 5f;
@@ -10,19 +9,19 @@ public class Exercice01 : MonoBehaviour
     private Vector3 _direction = new Vector3(0, 1, 0);
 
 
-    // Update is called once per frame
     void Update()
     {
+        // if the position is greater then the Range in Y direct the cube downward
         if(transform.position.y >= _yRange)
         {
             _direction.y = -1;
         }
-
-        if(transform.position.y <= -_yRange)
+        // if the position is smaller then the Range in Y direct the cube downward
+        if (transform.position.y <= -_yRange)
         {
             _direction.y = 1;
         }
-
+        // increment the cube position every frame by the given speed 
         transform.position += _direction * _speed * Time.deltaTime;
     }
 }

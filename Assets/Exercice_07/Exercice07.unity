@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 191251247}
   - component: {fileID: 191251246}
   - component: {fileID: 191251245}
-  - component: {fileID: 191251249}
   - component: {fileID: 191251250}
+  - component: {fileID: 191251251}
   m_Layer: 6
   m_Name: White Sphere
   m_TagString: Untagged
@@ -222,19 +222,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &191251249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191251243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13436dcff024a994fa5f96c16dcbc2e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 4
 --- !u!54 &191251250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -251,6 +238,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &191251251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191251243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386ebe957fab19b47a3ee0384902964f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 4
 --- !u!1 &377587855
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 1020716534}
   - component: {fileID: 1020716533}
   m_Layer: 0
-  m_Name: SphereChangeControl
+  m_Name: SphereControlChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,8 +377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83a996048c151348977e221cc004301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _whiteSphere: {fileID: 191251249}
-  _blackSphere: {fileID: 2137801497}
+  _whiteSphere: {fileID: 191251251}
+  _blackSphere: {fileID: 2137801503}
 --- !u!4 &1020716534
 Transform:
   m_ObjectHideFlags: 0
@@ -527,8 +527,8 @@ Camera:
   m_GameObject: {fileID: 1534218465}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.12148452, g: 0.16962837, b: 0.24528301, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -568,7 +568,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534218465}
-  m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.7071079}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -736,8 +736,8 @@ GameObject:
   - component: {fileID: 2137801500}
   - component: {fileID: 2137801499}
   - component: {fileID: 2137801498}
-  - component: {fileID: 2137801497}
   - component: {fileID: 2137801502}
+  - component: {fileID: 2137801503}
   m_Layer: 7
   m_Name: Black Sphere
   m_TagString: Untagged
@@ -745,19 +745,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2137801497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137801496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13436dcff024a994fa5f96c16dcbc2e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 4
 --- !u!135 &2137801498
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -852,3 +839,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2137801503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137801496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386ebe957fab19b47a3ee0384902964f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 4
