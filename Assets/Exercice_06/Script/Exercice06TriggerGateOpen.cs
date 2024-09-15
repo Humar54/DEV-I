@@ -8,6 +8,5 @@ public class Exercice06TriggerGateOpen : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _gate.SetActive(false);
-
     }
 }
