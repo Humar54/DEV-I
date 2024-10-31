@@ -22,6 +22,7 @@ public class Parallax : MonoBehaviour
                 newLayer.GetComponent<Parallax_Layer>().Init(_objectToFollow,this);
             }
         }
+        
     }
 
     void Update()

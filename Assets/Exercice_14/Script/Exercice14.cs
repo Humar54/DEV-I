@@ -6,10 +6,9 @@ public class Exercice14 : MonoBehaviour
 {
     [SerializeField] private List<Transform> _listTransform = new List<Transform>();
     [SerializeField] private Transform _movingObject;
-    [SerializeField] private int _indexToRemove;
-
     [SerializeField] private float _minDistance = 0.5f;
     [SerializeField] private float _speed = 5f;
+
 
     private Transform _currentTarget;
     private int _currentTargetIndex;
@@ -21,29 +20,22 @@ public class Exercice14 : MonoBehaviour
 
     private void Update()
     {
-        foreach (Transform t in _listTransform) 
-        { 
-            if((_currentTarget.position-_movingObject.position).magnitude < _minDistance)
-            {
-                _currentTargetIndex++;
-                int count = _listTransform.Count;
-                _currentTargetIndex = _currentTargetIndex%count;
-                _currentTarget = _listTransform[_currentTargetIndex];
-            }
+        if ((_currentTarget.position - _movingObject.position).magnitude < _minDistance)
+        {
+            _currentTargetIndex++;
+            int count = _listTransform.Count;
+            _currentTargetIndex = _currentTargetIndex % count;
+            _currentTarget = _listTransform[_currentTargetIndex];
         }
-        Vector3 direction = (_currentTarget.position- _movingObject.position).normalized;
-        _movingObject.position += direction * _speed * Time.deltaTime;
 
+        Vector3 direction = (_currentTarget.position - _movingObject.position).normalized;
+        _movingObject.position += direction * _speed * Time.deltaTime;
     }
 
-    public void RemoveIndex()
+    public void RemoveRandomCircle()
     {
-        if(_indexToRemove <_listTransform.Count && _listTransform.Count > 1)
-        {
-            Destroy(_listTransform[_indexToRemove].gameObject);
-            _listTransform.RemoveAt(_indexToRemove);
-            _currentTargetIndex = _currentTargetIndex % _listTransform.Count;
-            _currentTarget = _listTransform[_currentTargetIndex];   
-        }
+        int indexToRemove = Random.Range(0, _listTransform.Count);
+        Destroy(_listTransform[indexToRemove].gameObject);
+        _listTransform.RemoveAt(indexToRemove);
     }
 }

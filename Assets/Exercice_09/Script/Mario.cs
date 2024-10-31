@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Mario : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private float _jumpForce;
+    [SerializeField] private float _jumpSpeed;
+
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
     private Vector2 _velocity;
-
     private int _collisionCount;
 
     // Start is called before the first frame update
@@ -33,13 +32,12 @@ public class Mario : MonoBehaviour
             _velocity.x = -_speed;
             _spriteRenderer.flipX = true;
         }
-        
-
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(_collisionCount>0)
             {
-                _rigidbody2D.AddForce(Vector2.up * _jumpForce);
+                _velocity.y = _jumpSpeed;
+                _rigidbody2D.velocity = _velocity;
             }
         }
     }
