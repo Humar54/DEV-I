@@ -24,7 +24,7 @@ public class Cours18_Fireball : MonoBehaviour
 
     private void Update()
     {
-        Vector3 direction = (_target.position - transform.position).normalized;
+        Vector3 direction = (_target.position + new Vector3(0,1.5f,0) - transform.position).normalized;
         if(!_hasExploded)
         {
             _rb.velocity = direction * _fireballSpeed;

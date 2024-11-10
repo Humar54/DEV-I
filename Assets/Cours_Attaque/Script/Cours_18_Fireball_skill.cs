@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 
 
@@ -8,16 +9,15 @@ public class Cours_18_Fireball_skill : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _coolDown = 5f;
+    [SerializeField] private float _fireBallDelay = 0.4f;
 
     private float _timer;
-
 
     private void Update()
     {
         CheckToSendFireball();
         _timer += Time.deltaTime;
     }
-
     private void CheckToSendFireball()
     {
         if (_timer > _coolDown)
@@ -34,7 +34,7 @@ public class Cours_18_Fireball_skill : MonoBehaviour
                     if (enemy != null)
                     {
                         transform.LookAt(enemy.transform.position);
-                        SendFireball(enemy.transform);
+                        StartCoroutine(SendFireball(enemy.transform));
                     }
                 }
             }
@@ -46,9 +46,10 @@ public class Cours_18_Fireball_skill : MonoBehaviour
         return _timer / _coolDown;
     }
 
-    private void SendFireball(Transform target)
+    private IEnumerator SendFireball(Transform target)
     {
         _animator.SetTrigger("_cast");
+        yield return new WaitForSeconds(_fireBallDelay);
         Cours18_Fireball newFireball = Instantiate(_fireballPrefab, _spawnPoint.position, Quaternion.identity);
         newFireball.SetTarget(target);
         _timer = 0;
