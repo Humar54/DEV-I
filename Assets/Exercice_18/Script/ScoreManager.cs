@@ -1,6 +1,5 @@
 
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +17,6 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private string _playerPrefScoreName = "Score";
     [SerializeField] private string _playerPrefIndexName = "Index";
     [SerializeField] private string _playerPrefCounter = "Counter";
-
 
     private void Start()
     {
